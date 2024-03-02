@@ -325,8 +325,9 @@ namespace vks
 
 		// Create the memory backing up the buffer handle
 		VkMemoryRequirements memReqs;
-		VkMemoryAllocateInfo memAlloc = vks::initializers::memoryAllocateInfo();
 		vkGetBufferMemoryRequirements(logicalDevice, *buffer, &memReqs);
+
+		VkMemoryAllocateInfo memAlloc = vks::initializers::memoryAllocateInfo();
 		memAlloc.allocationSize = memReqs.size;
 		// Find a memory type index that fits the properties of the buffer
 		memAlloc.memoryTypeIndex = getMemoryType(memReqs.memoryTypeBits, memoryPropertyFlags);
